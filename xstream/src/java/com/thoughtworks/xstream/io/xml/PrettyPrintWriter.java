@@ -169,6 +169,7 @@ public class PrettyPrintWriter extends AbstractXmlWriter {
         elementStack.push(escapedName);
         tagInProgress = true;
         depth++;
+        //准备好开始下一行
         readyForNewLine = true;
         tagIsEmpty = true;
     }
@@ -299,10 +300,12 @@ public class PrettyPrintWriter extends AbstractXmlWriter {
         if (tagInProgress) {
             writer.write('>');
         }
+        //处理完成之后标识重置
         tagInProgress = false;
         if (readyForNewLine) {
             endOfLine();
         }
+        //处理完成之后标识重置
         readyForNewLine = false;
         tagIsEmpty = false;
     }

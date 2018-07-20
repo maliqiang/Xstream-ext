@@ -59,6 +59,11 @@ public class TreeMarshaller implements MarshallingContext {
         convert(item, converter);
     }
 
+    /**
+     * 类型转换
+     * @param item
+     * @param converter
+     */
     protected void convert(final Object item, final Converter converter) {
         if (parentObjects.containsId(item)) {
             final ConversionException e = new CircularReferenceException("Recursive reference to parent object");
